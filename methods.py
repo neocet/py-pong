@@ -24,6 +24,7 @@ def draw(win, paddles, bola, skor_kiri, skor_kanan):
             continue
         pygame.draw.rect(win, WHITE, (WIDTH//2 - 5, i, 10, HEIGHT//20))
 
+    bola.draw(win)
     pygame.display.update()
 
 
