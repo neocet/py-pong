@@ -67,3 +67,5 @@ def handle_paddle_movement(keys, paddle_kiri, paddle_kanan):
         paddle_kanan.move(up=True)
     if keys[pygame.K_DOWN] and paddle_kanan.y + paddle_kanan.VEL + paddle_kanan.height <= HEIGHT:
         paddle_kanan.move(up=False)
+
+        #KEVINNNN
