@@ -24,7 +24,6 @@ def draw(win, paddles, bola, skor_kiri, skor_kanan):
             continue
         pygame.draw.rect(win, WHITE, (WIDTH//2 - 5, i, 10, HEIGHT//20))
 
-    bola.draw(win)
     pygame.display.update()
 
 
@@ -67,5 +66,3 @@ def handle_paddle_movement(keys, paddle_kiri, paddle_kanan):
         paddle_kanan.move(up=True)
     if keys[pygame.K_DOWN] and paddle_kanan.y + paddle_kanan.VEL + paddle_kanan.height <= HEIGHT:
         paddle_kanan.move(up=False)
-
-        #KEVINNNNN
