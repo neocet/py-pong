@@ -29,11 +29,17 @@ def main():
     menu = True
     difficulty = False
     end = False
+    bgm = False
     DIFF = "Normal"
     
     # App version
-    app_ver = "Pong, v0.1.2b"
+    app_ver = "Pong, v0.2b"
     app_ver_text = pygame.font.SysFont("consolas", 20).render(app_ver, 1, WHITE)
+
+    # Background audio
+    pygame.mixer.music.load("assets/background.wav")
+    pygame.mixer.music.set_volume(0.2)
+    pygame.mixer.music.play(-1)
 
     # Inisialisasi objek dan skor
     left_paddle = Paddle(10, HEIGHT//2 - PADDLE_HEIGHT //
@@ -49,10 +55,14 @@ def main():
     start_img = pygame.image.load("assets/start.png")
     diff_img = pygame.image.load("assets/diff.png")
     quit_img = pygame.image.load("assets/quit.png")
+    unmute_img = pygame.image.load("assets/unmuted.png")
+    mute_img = pygame.image.load("assets/muted.png")
 
     start_btn = Button(WIDTH//2 - 110, HEIGHT//4 - 75, start_img, 1)
     diff_btn = Button(WIDTH//2 - 110, 2 * HEIGHT//4 - 50, diff_img, 1)
     quit_btn = Button(WIDTH//2 - 110, 3 * HEIGHT//4 - 25, quit_img, 1)
+    unmute_btn = Button(WIDTH - 75, 395, unmute_img, 1)
+    mute_btn = Button(WIDTH - 75, 395, mute_img, 1)
 
     # Button pada menu difficulty
     back_img = pygame.image.load("assets/back.png")
@@ -76,6 +86,15 @@ def main():
             diff_btn.draw(WIN)
             quit_btn.draw(WIN)
 
+            if bgm:
+                pygame.mixer.music.unpause()
+                pygame.draw.rect(WIN, BLACK, (WIDTH - 75, 395, 60, 60))
+                unmute_btn.draw(WIN)
+            else:
+                pygame.mixer.music.pause()
+                pygame.draw.rect(WIN, BLACK, (WIDTH - 75, 395, 60, 60))
+                mute_btn.draw(WIN)
+
             # Teks tambahan
             diff_text = pygame.font.SysFont("comicsans", 36).render(DIFF, 1, WHITE)
             WIN.blit(diff_text, (WIDTH - 10 - diff_text.get_width(), HEIGHT - 10 - diff_text.get_height()))
@@ -93,11 +112,30 @@ def main():
                     pos = pygame.mouse.get_pos()
                     if start_btn.is_over(pos):      # Menekan tombol start
                         menu = False
+
                     if diff_btn.is_over(pos):       # Menekan tombol difficulty
                         menu = False
                         difficulty = True
+
                     elif quit_btn.is_over(pos):     # Menekan tombol quit
                         run = False
+                        
+                    elif unmute_btn.is_over(pos):   # Menekan tombol unmute
+                        bgm = False
+                        unmute_btn.y = 1000
+                        unmute_btn.draw(WIN)
+                        mute_btn = Button(WIDTH - 75, 395, mute_img, 1)
+                        mute_btn.draw(WIN)
+                        pygame.display.update()
+
+                    elif mute_btn.is_over(pos):     # Menekan tombol mute
+                        bgm = True
+                        mute_btn.y = 1000
+                        mute_btn.draw(WIN)
+                        unmute_btn = Button(WIDTH - 75, 395, unmute_img, 1)
+                        unmute_btn.draw(WIN)
+                        pygame.display.update()
+                    
 
         elif difficulty:    # Menampilkan menu difficulty
             # Menampilkan tombol pada menu difficulty
@@ -108,6 +146,15 @@ def main():
             normal_btn.draw(WIN)
             insane_btn.draw(WIN)
             godly_btn.draw(WIN)
+
+            if bgm:
+                pygame.mixer.music.unpause()
+                pygame.draw.rect(WIN, BLACK, (WIDTH - 75, 395, 60, 60))
+                unmute_btn.draw(WIN)
+            else:
+                pygame.mixer.music.pause()
+                pygame.draw.rect(WIN, BLACK, (WIDTH - 75, 395, 60, 60))
+                mute_btn.draw(WIN)
 
             # Teks tambahan
             select_text = pygame.font.SysFont("consolas", 40).render("Select Difficulty", 1, WHITE)
@@ -155,6 +202,22 @@ def main():
                     elif back_btn.is_over(pos):     # Menekan tombol back
                         difficulty = False
                         menu = True
+
+                    elif unmute_btn.is_over(pos):   # Menekan tombol unmute
+                        bgm = False
+                        unmute_btn.y = 1000
+                        unmute_btn.draw(WIN)
+                        mute_btn = Button(WIDTH - 75, 395, mute_img, 1)
+                        mute_btn.draw(WIN)
+                        pygame.display.update()
+
+                    elif mute_btn.is_over(pos):     # Menekan tombol mute
+                        bgm = True
+                        mute_btn.y = 1000
+                        mute_btn.draw(WIN)
+                        unmute_btn = Button(WIDTH - 75, 395, unmute_img, 1)
+                        unmute_btn.draw(WIN)
+                        pygame.display.update()
 
         elif end:           # Menampilkan menu akhir (endgame)
             # Menampilkan menu akhir
