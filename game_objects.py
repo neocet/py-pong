@@ -31,14 +31,13 @@ class Paddle:
         self.y = self.original_y
 
 class Ball:
-    MAX_kecepatan = 5
     warna = WHITE
 
-    def __init__(self, x, y, radius):
+    def __init__(self, x, y, radius, x_vel):
         self.x = self.original_x = x
         self.y = self.original_y = y
         self.radius = radius
-        self.x_vel = self.MAX_kecepatan
+        self.x_vel = x_vel
         self.y_vel = 0
 
     def draw(self, win):
