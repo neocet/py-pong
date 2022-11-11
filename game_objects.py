@@ -52,3 +52,26 @@ class Ball:
         self.y = self.original_y
         self.y_vel = 0
         self.x_vel *= -1
+
+
+class Button:
+    def __init__(self, x, y, image, scale):
+        self.x = x
+        self.y = y
+
+        width = image.get_width()
+        height = image.get_height()
+        self.image = pygame.transform.scale(image, (int(width * scale), int(height * scale)))
+    
+    def draw(self, win):
+        win.blit(self.image, (self.x, self.y))
+
+    def is_clicked(self, pos):
+        x, y = pos
+        return self.x <= x <= self.x + self.image.get_width() and self.y <= y <= self.y + self.image.get_height()
+
+    def is_over(self, pos):
+        if pos[0] > self.x and pos[0] < self.x + self.image.get_width():
+            if pos[1] > self.y and pos[1] < self.y + self.image.get_height():
+                return True
+        return False
