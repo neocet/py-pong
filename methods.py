@@ -41,7 +41,7 @@ def handle_collision(bola, paddle_kiri, paddle_kanan):
 
                 middle_y = paddle_kiri.y + paddle_kiri.height / 2
                 difference_in_y = middle_y - bola.y
-                reduction_factor = (paddle_kiri.height / 2) / bola.MAX_VEL
+                reduction_factor = (paddle_kiri.height / 2) / bola.x_vel
                 y_vel = difference_in_y / reduction_factor
                 bola.y_vel = -1 * y_vel
 
@@ -52,7 +52,7 @@ def handle_collision(bola, paddle_kiri, paddle_kanan):
 
                 middle_y = paddle_kanan.y + paddle_kanan.height / 2
                 difference_in_y = middle_y - bola.y
-                reduction_factor = (paddle_kanan.height / 2) / bola.MAX_VEL
+                reduction_factor = (paddle_kanan.height / 2) / bola.x_vel
                 y_vel = difference_in_y / reduction_factor
                 bola.y_vel = -1 * y_vel
 
