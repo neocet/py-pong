@@ -8,7 +8,7 @@ WIDTH, HEIGHT = 700, 500
 
 class Paddle:
     warna = WHITE
-    kecepatan = 8
+    VEL = 8
 
     def __init__(self, x, y, width, height):
         self.x = self.original_x = x
