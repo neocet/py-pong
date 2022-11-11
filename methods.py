@@ -58,13 +58,13 @@ def handle_collision(bola, paddle_kiri, paddle_kanan):
 
 
 def handle_paddle_movement(keys, paddle_kiri, paddle_kanan):
-    if keys[pygame.K_w] and paddle_kiri.y - paddle_kiri.VEL >= 0:
+    if keys[pygame.K_w] and paddle_kiri.y - paddle_kiri.kecepatan >= 0:
         paddle_kiri.move(up=True)
-    if keys[pygame.K_s] and paddle_kiri.y + paddle_kiri.VEL + paddle_kiri.height <= HEIGHT:
+    if keys[pygame.K_s] and paddle_kiri.y + paddle_kiri.kecepatan + paddle_kiri.height <= HEIGHT:
         paddle_kiri.move(up=False)
 
-    if keys[pygame.K_UP] and paddle_kanan.y - paddle_kanan.VEL >= 0:
+    if keys[pygame.K_UP] and paddle_kanan.y - paddle_kanan.kecepatan >= 0:
         paddle_kanan.move(up=True)
-    if keys[pygame.K_DOWN] and paddle_kanan.y + paddle_kanan.VEL + paddle_kanan.height <= HEIGHT:
+    if keys[pygame.K_DOWN] and paddle_kanan.y + paddle_kanan.kecepatan + paddle_kanan.height <= HEIGHT:
         paddle_kanan.move(up=False)
 
