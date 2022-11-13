@@ -29,7 +29,7 @@ def main():
     menu = True
     difficulty = False
     end = False
-    bgm = False
+    bgm = True
     DIFF = "Normal"
     
     # App version
