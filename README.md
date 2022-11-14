@@ -6,12 +6,16 @@ Projek ini merupakan implementasi dari game Pong menggunakan bahasa pemrograman 
 Pastikan anda sudah menginstall Python 3.8.5 atau yang lebih baru. Untuk menginstall Python, anda dapat mengunjungi [situs resminya](https://www.python.org/downloads/).
 Projek ini menggunakan pygame sebagai library untuk menggambar dan mengatur game. Untuk menginstall pygame, anda dapat menjalankan perintah berikut pada terminal anda:
 
-```python -m pip install pygame```
+```
+python -m pip install pygame
+```
 
 ## Cloning the repository
 Untuk mengunduh projek ini, anda dapat menggunakan perintah berikut pada terminal anda:
 
-```git clone https://github.com/neocet/py-pong.git```
+```
+git clone https://github.com/neocet/py-pong.git
+```
 
 Alternatively, projek ini dapat didownload melalui [releases page](https://github.com/neocet/py-pong/releases/tag/v0.2b)
 
@@ -19,7 +23,9 @@ Alternatively, projek ini dapat didownload melalui [releases page](https://githu
 ## Running the game
 Untuk menjalankan game, anda dapat menjalankan perintah berikut pada terminal anda:
 
-```python main.py```
+```
+python main.py
+```
 
 ## Special Thanks
 * Dr.Eng. Muhammad Haris Mahyuddin, S.T., M.Eng. dan Dr.Eng. Nugraha - Dosen Pengenalan Komputasi FTI 2022
